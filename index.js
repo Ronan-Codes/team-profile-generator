@@ -1,25 +1,36 @@
 const inquirer = require('inquirer');
 
-/*const generatePage = require('./src/page-template');
+/*
+const generateMarkdown = require('./src/generate-markdown.js');
 const { writeFile, copyFile } = require('/src/generate-site');
+*/
 
-const Employee = requre('./lib/Employee.js');
-const Engineer = require('.lib')
 
-let employees = [];
+//const Employee = requre('./lib/Employee.js');
+const Manager = require('./lib/Manager.js')
+const Engineer = require('./lib/Engineer.js')
+const Intern = require('./lib/Intern.js')
+
+
 let managers = [];
 let engineers = [];
 let interns = []
+
+/*
+const promptEmployee = require('./lib/Employee.js');
 */
 
-const promptEmployee = require('./lib/Employee.js');
+function promptUser() {
+    this.name = '';
+    this.id = "";
+    this.email = "";
+    this.office = "";
 
-const promptUser = () => {
     return inquirer.prompt([
         {
             type: 'input',
             name: 'name',
-            message: "Please enter the Team Manager's name.",
+            message: "Please enter Employee Name.",
             validate: nameInput => {
                 if (nameInput) {
                     return true;
@@ -33,7 +44,7 @@ const promptUser = () => {
         {
             type: 'input',
             name: 'id',
-            message: "Enter Team Manager's Employee ID.",
+            message: "Enter Employee's ID.",
             valitdate: idInput => {
                 if (idInput) {
                     if (isNaN(idInput)) {
@@ -49,23 +60,26 @@ const promptUser = () => {
         {
             type: 'input',
             name: 'email',
-            message: "Please enter the Team Manager's email address.",
+            message: "Enter Employee's email address.",
         },
 
         {
             type: "input",
-            name: "number",
+            name: "officeNumber",
             message: "Enter office number.",
-        },
-
-        {
-            type: "list",
-            name: "=)",
-            message: "Have a wonderful day!",
-            choices: ["=)", "Thank You!"]
         }
 
-    ]).then(() => {promptMenu()})
+    ])
+    .then(({ name, id, email, officeNumber }) => {
+        this.name = name;
+        this.id = id;
+        this.email = email;
+        this.office = officeNumber;
+        console.log(this.name, this.id, this.email, this.office);
+        promptMenu();
+
+      })
+
 };
 
 const promptMenu = () => {
@@ -95,7 +109,12 @@ const promptMenu = () => {
     })
 }
 
-const promptEngineer = () => {
+function promptEngineer() {
+    this.name = '';
+    this.id = "";
+    this.email = "";
+    this.github = "";
+
     return inquirer.prompt([
         {
             type: 'input',
@@ -146,10 +165,23 @@ const promptEngineer = () => {
             }
         }
     ])
-    .then(() => {promptMenu()})
+    .then(({ name, id, email, gitHub }) => {
+        this.name = name;
+        this.id = id;
+        this.email = email;
+        this.github = gitub;
+        console.log(this.name, this.id, this.email, this.github);
+
+        promptMenu();
+      })
 }
 
-const promptIntern = () => {
+function promptIntern() {
+    this.name = '';
+    this.id = "";
+    this.email = "";
+    this.school = "";
+
     return inquirer.prompt([
         {
             type: 'input',
@@ -200,7 +232,59 @@ const promptIntern = () => {
             }
         }
     ])
-    .then(() => {promptMenu()})
+    .then(({ name, id, email, gitHubInput }) => {
+        this.name = name;
+        this.id = id;
+        this.email = email;
+        this.school = schoolInput;
+        console.log(this.name, this.id, this.email, this.school);
+
+        promptMenu();
+    })
 }
 
+const addManager = (managerData) => {
+    const manager = new Manager(managerData.name, managerData.id, managerData.email, managerData.officeNumber);
+
+    managers.push(manager);
+
+    console.log("Manager has been added to team!");
+    return;
+};
+
+const addEngineer = (engineerData) => {
+    const engineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github);
+
+    engineers.push(engineer);
+
+    console.log("Engineer has been added to team!");
+    return;
+};
+
+const addIntern = (internData) => {
+    const intern = new Intern(internData.name, internData.id, internData.email, internData.school);
+
+    interns.push(intern);
+
+    console.log("Intern has been added to team!");
+
+    return;
+};
+
 promptUser()
+
+/*
+promptUser()
+.then(userData => {
+    return generateMarkdown(userData);
+})
+.then(readmeContent => {
+    return writeFile(readmeContent);
+})
+.then(writeFileResponse => {
+    console.log(writeFileResponse);
+})
+.catch(err => {
+    console.log(err);
+});
+*/
