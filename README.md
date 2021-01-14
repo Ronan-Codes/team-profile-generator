@@ -11,7 +11,7 @@
   * [Questions](#questions)
 
   ## Installation
-  * First, "git clone" from the git hub repository: [GitHub Repo](git@github.com:galv-ronan/team-profile-generator.git)
+  * First, "git clone" from the git hub repository: [GitHub Repo](https://github.com/galv-ronan/team-profile-generator.git)
   * Next, in the terminal, type: "npm install"
 
   ## Usage
