@@ -1,9 +1,10 @@
 const inquirer = require('inquirer');
+const menu = require('inquirer-menu');
 
-/*
+
 const generateMarkdown = require('./src/generate-markdown.js');
-const { writeFile, copyFile } = require('/src/generate-site');
-*/
+const { writeFile, copyFile } = require('./src/generate-site');
+
 
 
 //const Employee = requre('./lib/Employee.js');
@@ -21,10 +22,7 @@ const promptEmployee = require('./lib/Employee.js');
 */
 
 function promptUser() {
-    this.name = '';
-    this.id = "";
-    this.email = "";
-    this.office = "";
+
 
     return inquirer.prompt([
         {
@@ -70,50 +68,24 @@ function promptUser() {
         }
 
     ])
-    .then(({ name, id, email, officeNumber }) => {
-        this.name = name;
-        this.id = id;
-        this.email = email;
-        this.office = officeNumber;
-        console.log(this.name, this.id, this.email, this.office);
-        promptMenu();
-
-      })
+    .then(addManager)
 
 };
 
-const promptMenu = () => {
-    return inquirer.prompt([
-        {
-            type: "list",
-            name: "menu",
-            message: 'Add Engineer/Intern',
-            choices: [
-                "Add Engineer",
-                "Add Intern",
-                "Exit"
-            ]
+function promptMenu() {
+    return {
+        type: "list",
+        name: "menu",
+        message: 'Add Engineers/Interns',
+        choices: {
+            "Add Engineer": promptEngineer,
+            "Add Intern": promptIntern,
         }
-    ])
-    .then(({ menu }) => {
-        if (menu === 'Add Engineer') {
-            promptEngineer();
-        }
-        if (menu === 'Add Intern') {
-            promptIntern();
-        }
-        else {
-            console.log("Your Team Profile has been created!")
-            return
-        }
-    })
-}
+    };
+};
 
 function promptEngineer() {
-    this.name = '';
-    this.id = "";
-    this.email = "";
-    this.github = "";
+
 
     return inquirer.prompt([
         {
@@ -165,22 +137,11 @@ function promptEngineer() {
             }
         }
     ])
-    .then(({ name, id, email, gitHub }) => {
-        this.name = name;
-        this.id = id;
-        this.email = email;
-        this.github = gitub;
-        console.log(this.name, this.id, this.email, this.github);
-
-        promptMenu();
-      })
-}
+    .then(addEngineer)
+};
 
 function promptIntern() {
-    this.name = '';
-    this.id = "";
-    this.email = "";
-    this.school = "";
+
 
     return inquirer.prompt([
         {
@@ -232,16 +193,8 @@ function promptIntern() {
             }
         }
     ])
-    .then(({ name, id, email, gitHubInput }) => {
-        this.name = name;
-        this.id = id;
-        this.email = email;
-        this.school = schoolInput;
-        console.log(this.name, this.id, this.email, this.school);
-
-        promptMenu();
-    })
-}
+    .then(addIntern)
+};
 
 const addManager = (managerData) => {
     const manager = new Manager(managerData.name, managerData.id, managerData.email, managerData.officeNumber);
@@ -249,7 +202,6 @@ const addManager = (managerData) => {
     managers.push(manager);
 
     console.log("Manager has been added to team!");
-    return;
 };
 
 const addEngineer = (engineerData) => {
@@ -258,7 +210,6 @@ const addEngineer = (engineerData) => {
     engineers.push(engineer);
 
     console.log("Engineer has been added to team!");
-    return;
 };
 
 const addIntern = (internData) => {
@@ -267,24 +218,28 @@ const addIntern = (internData) => {
     interns.push(intern);
 
     console.log("Intern has been added to team!");
-
-    return;
 };
 
 promptUser()
+.then(() => {
+    menu(promptMenu)
+    .then(() => {
+        console.log(managers, engineers, interns)
+        return generateMarkdown(managers, engineers, interns);
 
-/*
-promptUser()
-.then(userData => {
-    return generateMarkdown(userData);
+    })
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+        return copyFile();
+    })
+    .then(copyFileResponse => {
+        console.log(copyFileResponse);
+        console.log("Team is complete, open html to see!");
+    })
+    .catch(err => {
+        console.log(err);
+    })
 })
-.then(readmeContent => {
-    return writeFile(readmeContent);
-})
-.then(writeFileResponse => {
-    console.log(writeFileResponse);
-})
-.catch(err => {
-    console.log(err);
-});
-*/
