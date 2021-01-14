@@ -28,12 +28,12 @@ function promptUser() {
         {
             type: 'input',
             name: 'name',
-            message: "Please enter Employee Name.",
+            message: "Please enter the Manager's Name.",
             validate: nameInput => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log("Please enter Team Manager's name!");
+                    console.log("Please enter the Manager's name!");
                     return false;
                 }
             }
@@ -42,7 +42,7 @@ function promptUser() {
         {
             type: 'input',
             name: 'id',
-            message: "Enter Employee's ID.",
+            message: "Enter the Manager's ID.",
             valitdate: idInput => {
                 if (idInput) {
                     if (isNaN(idInput)) {
@@ -58,13 +58,13 @@ function promptUser() {
         {
             type: 'input',
             name: 'email',
-            message: "Enter Employee's email address.",
+            message: "Enter the Manager's email address.",
         },
 
         {
             type: "input",
             name: "officeNumber",
-            message: "Enter office number.",
+            message: "Enter Manager's office number.",
         }
 
     ])
@@ -91,12 +91,12 @@ function promptEngineer() {
         {
             type: 'input',
             name: 'name',
-            message: "Please enter Employee Name.",
+            message: "Please enter the Engineer's Name.",
             validate: nameInput => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log("Please enter Team Manager's name!");
+                    console.log("Please enter the Engineer's name!");
                     return false;
                 }
             }
@@ -105,14 +105,14 @@ function promptEngineer() {
         {
             type: 'input',
             name: 'id',
-            message: "Enter Employee's ID.",
+            message: "Enter the Engineer's ID.",
             valitdate: idInput => {
                 if (idInput) {
                     if (isNaN(idInput)) {
                         return "Enter numer values only for ID!";
                     } else true
                 } else {
-                    console.log("Please enter Team Manager's ID!");
+                    console.log("Please enter the Engineer's ID!");
                     return false;
                 }
             }
@@ -121,18 +121,18 @@ function promptEngineer() {
         {
             type: 'input',
             name: 'email',
-            message: "Enter Employee's email address.",
+            message: "Enter the Engineer's email address.",
         },
 
         {
             type: 'input',
             name: 'github',
-            message: "Enter Employee's GitHub:",
+            message: "Enter the Engineer's GitHub:",
             validate: gitHubInput => {
                 if (gitHubInput) {
                     return true;
                 } else {
-                    return "Please enter engineer's github";
+                    return "Please enter the Engineer's github";
                 }
             }
         }
@@ -147,12 +147,12 @@ function promptIntern() {
         {
             type: 'input',
             name: 'name',
-            message: "Please enter Employee Name.",
+            message: "Please enter Intern's Name.",
             validate: nameInput => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log("Please enter Team Manager's name!");
+                    console.log("Please enter the Intern's name!");
                     return false;
                 }
             }
@@ -161,14 +161,14 @@ function promptIntern() {
         {
             type: 'input',
             name: 'id',
-            message: "Enter Employee's ID.",
+            message: "Enter the Intern's ID.",
             valitdate: idInput => {
                 if (idInput) {
                     if (isNaN(idInput)) {
                         return "Enter numer values only for ID!";
                     } else true
                 } else {
-                    console.log("Please enter Team Manager's ID!");
+                    console.log("Please enter the Intern's ID!");
                     return false;
                 }
             }
@@ -177,18 +177,18 @@ function promptIntern() {
         {
             type: 'input',
             name: 'email',
-            message: "Enter Employee's email address.",
+            message: "Enter the Intern's email address.",
         },
 
         {
             type: 'input',
             name: 'school',
-            message: "Enter Intern's school",
+            message: "Enter the Intern's school",
             validate: schoolInput => {
                 if (schoolInput) {
                     return true;
                 } else {
-                    return "Please enter Intern's school!";
+                    return "Please enter the Intern's school!";
                 }
             }
         }

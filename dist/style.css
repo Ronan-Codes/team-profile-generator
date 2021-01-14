@@ -1,0 +1,29 @@
+header nav {
+    margin-top: 0;
+  }
+
+  header .navbar {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  header .navbar .container {
+    justify-content: center;
+  }
+
+  header nav div .h1 {
+    font-size: 2em;
+  }
+
+  .cards-holder {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+  }
+
+  .card {
+    margin: 15px;
+    width: 17em;
+    border: none;
+    box-shadow: 5px 5px 7px #888888;
+  }

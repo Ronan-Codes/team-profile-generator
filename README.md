@@ -16,7 +16,7 @@
 
   ## Usage
   * Once installed, watch this walkthrough video see the workflow of this Team Profile Generator CLA:
-  * [Walkthrough Video]()
+  * [Walkthrough Video](https://drive.google.com/file/d/16_VBEYRqhWf46qnVSP85VAOdGtGbJy-O/view)
 
   ## Tests
   After installation processs, use the terminal from the root and run the command "npm test". This will test for Employee.js, Manager.js, Engineer.js, and Intern.js.
