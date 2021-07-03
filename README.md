@@ -24,9 +24,9 @@ Team Profile Generator is command-line application that utilizes Node.js to crea
 ## Installation
 1. First, "git clone" from the git hub repository: [GitHub Repo](https://github.com/galv-ronan/team-profile-generator.git)
 2.  Next, at root of application:
-  ```
+```
   $ npm install
-  ```
+```
 
 ## Usage
 1. Once installed, enter the command below
