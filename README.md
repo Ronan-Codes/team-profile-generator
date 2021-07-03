@@ -52,4 +52,6 @@ This project is in the public domain and free for any and all users! For more in
 * If you'd like to contribute to this project, please follow the rules of the [Contributor Covenant](https://www.contributor-covenant.org/)
 
 ## Author
-This application was written and developed by Ronan Galvez. This assignment is part of the UCF Coding Bootcamp's project requirements. For any questions/suggestions/concerns, open an issue in the project [repo](https://github.com/galv-ronan/team-profile-generator.git) or contact me directly at [galv.ronan@gmail.com](galv.ronan@gmail.com). Check out the rest of my work on GitHub at [Ronan-Codes](https://github.com/Ronan-Codes).
+* This application was written and developed by Ronan Galvez. This assignment is part of the UCF Coding Bootcamp's project requirements.
+* For any questions/suggestions/concerns, open an issue in the project [repo](https://github.com/galv-ronan/team-profile-generator.git) or contact me directly at [galv.ronan@gmail.com](galv.ronan@gmail.com).
+* Check out the rest of my work on GitHub at [Ronan-Codes](https://github.com/Ronan-Codes).
