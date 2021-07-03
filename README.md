@@ -1,4 +1,4 @@
-# Team Profile Generator
+# Team Profile Generator [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
 ## Description
 Team Profile Generator is command-line application that utilizes Node.js to create an HTML webpage that showcases an engineering team. The user is asked a series of questions(through the use of inquirer) that summarizes each member of the software development.
@@ -24,11 +24,15 @@ Team Profile Generator is command-line application that utilizes Node.js to crea
 ## Installation
 1. First, "git clone" from the git hub repository: [GitHub Repo](https://github.com/galv-ronan/team-profile-generator.git)
 2.  Next, at root of application:
+  ```
   $ npm install
+  ```
 
 ## Usage
 1. Once installed, enter the command below
+```
   $ node index.js
+```
 2. Answer the following prompts
 3. Visit the html file located at dist/team.html to view the completed Team Profile
 
@@ -40,7 +44,9 @@ This project is in the public domain and free for any and all users! For more in
 
 ## Tests
 * After the installation processs, use the command below from the root of the application. This will test for Employee.js, Manager.js, Engineer.js, and Intern.js.
+```
   $ npm test
+```
 
 ## Contributing
 * If you'd like to contribute to this project, please follow the rules of the [Contributor Covenant](https://www.contributor-covenant.org/)
